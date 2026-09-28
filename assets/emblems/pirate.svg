@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Pirate: skull over crossed bones (line art) -->
+  <!-- crossed bones below the skull -->
+  <g stroke="#f4e9c8" stroke-width="10" stroke-linecap="round">
+    <path d="M52 130 L148 176"/>
+    <path d="M148 130 L52 176"/>
+  </g>
+  <g fill="#f4e9c8">
+    <circle cx="50" cy="124" r="8"/><circle cx="58" cy="134" r="8"/>
+    <circle cx="150" cy="124" r="8"/><circle cx="142" cy="134" r="8"/>
+    <circle cx="50" cy="182" r="8"/><circle cx="58" cy="172" r="8"/>
+    <circle cx="150" cy="182" r="8"/><circle cx="142" cy="172" r="8"/>
+  </g>
+  <!-- skull face mask: disc colour, hides any bone overlap under the skull -->
+  <path fill="#c0433b"
+        d="M100 30c-27 0-47 18-47 44 0 15 7 26 16 32v13a9 9 0 0 0 9 9h44a9 9 0 0 0 9-9v-13c9-6 16-17 16-32 0-26-20-44-47-44Z"/>
+  <!-- skull outline -->
+  <path fill="none" stroke="#f4e9c8" stroke-width="6" stroke-linejoin="round"
+        d="M100 30c-27 0-47 18-47 44 0 15 7 26 16 32v13a9 9 0 0 0 9 9h44a9 9 0 0 0 9-9v-13c9-6 16-17 16-32 0-26-20-44-47-44Z"/>
+  <!-- hollow eyes + nose (dark sockets) -->
+  <g fill="#7d221d" stroke="#f4e9c8" stroke-width="3.5">
+    <ellipse cx="82" cy="76" rx="10" ry="11"/>
+    <ellipse cx="118" cy="76" rx="10" ry="11"/>
+  </g>
+  <path fill="#7d221d" stroke="#f4e9c8" stroke-width="3.5" stroke-linejoin="round"
+        d="M100 92l-7 14h14l-7-14Z"/>
+  <!-- teeth -->
+  <g stroke="#f4e9c8" stroke-width="4.5" stroke-linecap="round">
+    <path d="M87 128v13 M100 128v15 M113 128v13"/>
+  </g>
+</svg>

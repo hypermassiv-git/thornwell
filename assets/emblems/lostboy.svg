@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Lost Boy: slingshot (line art) -->
+  <!-- Y frame -->
+  <g stroke="#f4e9c8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M62 60 L100 116 L138 60"/>
+    <path d="M100 116 V168"/>
+  </g>
+  <!-- elastic band strung across the fork, drooping to a pouch -->
+  <g stroke="#f4e9c8" stroke-width="5" stroke-linecap="round" fill="none">
+    <path d="M62 60 Q100 94 138 60"/>
+  </g>
+  <circle cx="100" cy="78" r="8" fill="#f4e9c8"/>
+  <!-- binding wraps near the prong tops -->
+  <g stroke="#f4e9c8" stroke-width="3.5" stroke-linecap="round">
+    <path d="M56 70 l9 5 M58 79 l9 5"/>
+    <path d="M144 70 l-9 5 M142 79 l-9 5"/>
+  </g>
+</svg>

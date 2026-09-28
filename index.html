@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neverland: Thornwell's Crossroads</title>
+  <meta name="description" content="Meet Thornwell, the Talking Cactus who guards the crossroads of Neverland. Answer his questions and he'll point you down your path: Pirate Cove, Pixie Hollow, Mermaid Lagoon, or the Lost Boys' Hideout." />
+
+  <!-- Social preview (update URL/image once deployed) -->
+  <meta property="og:title" content="Neverland: Which Path Will Thornwell Send You Down?" />
+  <meta property="og:description" content="Thornwell has judged everyone who passes the crossroads for decades. Let him size you up and point your path: Pirate Cove, Pixie Hollow, Mermaid Lagoon, or the Lost Boys' Hideout." />
+  <meta property="og:type" content="website" />
+
+  <!-- Placeholder brand fonts (swap in config.js + here for real brand type) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Layered crossroads stage: background scene + Thornwell foreground -->
+  <div id="stage" class="stage" data-screen="intro">
+    <div class="stage__bg" aria-hidden="true">
+      <!-- CSS/SVG placeholder crossroads sits here until assets/crossroads.jpg exists -->
+      <div class="crossroads-placeholder" aria-hidden="true">
+        <span class="path path--n"></span>
+        <span class="path path--e"></span>
+        <span class="path path--s"></span>
+        <span class="path path--w"></span>
+      </div>
+    </div>
+    <div class="stage__scrim" aria-hidden="true"></div>
+
+    <!-- Thornwell foreground layer (transparent PNG; CSS fallback if missing) -->
+    <div id="thornwell" class="thornwell">
+      <img class="thornwell__img" src="assets/thornwell.png" alt="Thornwell, the Talking Cactus"
+           onerror="document.getElementById('thornwell').classList.add('is-missing')" />
+      <!-- Shown only if assets/thornwell.png is missing; vanishes once it's added -->
+      <div class="thornwell__fallback" aria-hidden="true">
+        <span class="cactus">
+          <span class="cactus__arm cactus__arm--l"></span>
+          <span class="cactus__arm cactus__arm--r"></span>
+        </span>
+        <span class="cactus__label">drop thornwell.png here</span>
+      </div>
+    </div>
+
+    <!-- Bottom dialogue dock: each screen is a visual-novel dialogue box -->
+    <main class="dock">
+
+      <!-- ============ INTRO ============ -->
+      <section class="screen is-active" data-screen="intro">
+        <span class="box__name">Thornwell</span>
+        <h1 class="title">You've reached the crossroads.</h1>
+        <div class="speech">
+          <p>Oh. Good. Another one.</p>
+          <p>Four paths leave this crossroads: <strong>Pirate Cove</strong>, <strong>Pixie Hollow</strong>,
+             <strong>Mermaid Lagoon</strong>, and the <strong>Lost Boys' Hideout</strong>. Every one of
+             them runs through me, and you don't get to pick which one is yours. That's my job.</p>
+          <p>I've been rooted here for decades with nothing to do but watch and judge everyone who
+             passes, so believe me, I'm insufferably good at it. Answer me a few things and I'll
+             point you the right way.</p>
+        </div>
+        <div class="box__foot">
+          <button id="begin-btn" class="btn btn--primary" type="button">Let him size you up &rarr;</button>
+        </div>
+      </section>
+
+      <!-- ============ QUIZ ============ -->
+      <section class="screen" data-screen="quiz">
+        <div class="progress">
+          <div class="progress__track"><div id="progress-fill" class="progress__fill"></div></div>
+          <span id="progress-label" class="progress__label">Question 1 of 8</span>
+        </div>
+        <span class="box__name">Thornwell</span>
+        <h2 id="question-prompt" class="question"></h2>
+        <div id="question-options" class="options"></div>
+        <div class="quiz-nav">
+          <button id="back-btn" class="btn btn--ghost" type="button">&larr; Back</button>
+        </div>
+      </section>
+
+      <!-- ============ READING TRANSITION ============ -->
+      <section class="screen" data-screen="reading">
+        <span class="box__name">Thornwell</span>
+        <div class="reading">
+          <div class="reading__spinner" aria-hidden="true"></div>
+          <p id="reading-line" class="reading__line">Hold still. This takes a second.</p>
+        </div>
+      </section>
+
+      <!-- ============ RESULT ============ -->
+      <section class="screen" data-screen="result">
+        <div id="result-accent" class="result">
+          <span class="box__name">Thornwell</span>
+          <p id="result-sendoff" class="result__sendoff">There. That's your path. Off you go.</p>
+
+          <p id="result-mixed" class="result__mixed" hidden>...and it was a close read. He's annoyed about it.</p>
+
+          <figure class="result__card">
+            <canvas id="share-canvas" width="1080" height="1350" aria-label="Your Neverland result from Thornwell"></canvas>
+          </figure>
+
+          <div class="result__actions">
+            <button id="download-btn" class="btn btn--secondary" type="button">Download image</button>
+            <a id="share-btn" class="btn btn--secondary" target="_blank" rel="noopener" href="https://x.com">Share on X</a>
+          </div>
+          <a id="continue-btn" class="btn btn--primary btn--continue" href="https://neverland.money">Continue to Neverland &rarr;</a>
+          <p id="share-status" class="share-status" role="status" aria-live="polite"></p>
+
+          <button id="retake-btn" class="btn btn--ghost btn--retake" type="button">Let him judge you again</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Scripts: order matters (config -> data -> engine -> render -> boot) -->
+  <script src="js/config.js"></script>
+  <script src="js/archetypes.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/share.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Vercel
+.vercel
+
+# Local dev / editor config (machine-specific)
+.claude/
+
+# OS
+.DS_Store
+
+# Node (none used, but just in case)
+node_modules/
