@@ -17,17 +17,18 @@ const BRAND = {
   logomark: "assets/logomark.svg",   // official Neverland stars logomark (white)
 
   // --- Core palette ---------------------------------------------------------
-  // From the Neverland brand guide (neverland.money/brand):
-  //   Blue #192170 · Purple #480052 · Magenta #b506f5 · White #FFFFFF
+  // UI tokens match the live app (app.neverland.money); brand guide colors
+  // (neverland.money/brand) kept below as blue / purple / magenta.
   colors: {
-    bg:        "#0a0820",   // deep night (blue-purple base)
-    bgSoft:    "#1a1147",   // panel / dialogue-box base (brand blue/purple blend)
-    ink:       "#ffffff",   // Neverland White - primary text
-    inkSoft:   "#c9c6e8",   // soft lavender - secondary text
-    gold:      "#b506f5",   // brand accent = Neverland Magenta (var name kept)
-    goldDeep:  "#480052",   // Neverland Purple (gradient end)
-    line:      "#3a2c66",   // purple-tinted borders / dividers
-    danger:    "#e0684f",
+    bg:        "#10002C",   // app page base (deep violet)
+    bgSoft:    "#2a0b51",   // app panel surface
+    ink:       "#ffffff",   // primary text
+    inkSoft:   "#D4CEDC",   // app secondary text
+    muted:     "#A194B3",   // app muted text / labels
+    gold:      "#C757D8",   // app primary button gradient top (var name kept)
+    goldDeep:  "#9A00B2",   // app primary button gradient bottom
+    line:      "rgba(255, 255, 255, 0.1)", // app hairline borders
+    danger:    "#FF7E98",
     blue:      "#192170",   // Neverland Blue
     purple:    "#480052",   // Neverland Purple
     magenta:   "#b506f5",   // Neverland Magenta
@@ -77,6 +78,7 @@ function applyBrandToCss() {
   root.style.setProperty("--bg-soft", c.bgSoft);
   root.style.setProperty("--ink", c.ink);
   root.style.setProperty("--ink-soft", c.inkSoft);
+  root.style.setProperty("--ink-muted", c.muted);
   root.style.setProperty("--gold", c.gold);
   root.style.setProperty("--gold-deep", c.goldDeep);
   root.style.setProperty("--line", c.line);
